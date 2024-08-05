@@ -1,0 +1,38 @@
+// Containerization
+
+-What is the actual difference between containerization and virtualization.
+In a virtual machine model, each application runs on its own instance of a guest operating system.
+This operating system sits on top of a hypervisor. This setup leads to high overhead.
+The hypervisor provides the guest os with a virtual operating platform ('Hardware Virtualization').
+
+Containerization on the other hand, streamlines this process by providing a container engine that
+runs directly on the host operating system. Each application and its dependencies are packaged into lightweight containers that share the host OS kernel.
+
+
+- How does this isolation happen.
+In the early days of UNIX, processes could see the entire system.
+  - all running processes
+  - entire file system
+This lead  to security and stability issues.
+
+`chroot` syscall allowed the change of a process's root and its children.
+This created a "jail" isolating the process.
+
+More isolation came from `namespaces` and `control groups`.
+
+Namespaces are a concept which allows processes within it to have a seperate instance of 
+a particular resource (PID, USER, Netowork ... etc). Effectively creating isolated environments.
+An improvement over the isolation provided by chroot.
+
+`Cgroups` control groups provided a mechanism for aggregating sets of processes and managing, 
+their resource usage. can limit CPU, memory, disk I/O and network bandwidth each group had. This
+was to ensure that no single process can hog-up an entire resource. better control and stability.
+
+The combination of cgroups and namespaces, laid the foundation for containerization. 
+
+
+Docker streamlines the process of containerization. 
+
+A dockerfile is a blueprint for building a `docker image`, like a makefile. 
+A dockerfile is built, executes the instructions from the docker-file step by step.
+Running the docker container, a container is created, its resources isolated/allocated.
