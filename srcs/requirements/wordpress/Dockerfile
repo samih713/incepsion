@@ -26,7 +26,7 @@ RUN apk --update add --no-cache php \
 RUN adduser -S www-data -G www-data && \
 	sed -i "s|user = nobody|user = www-data|g" /etc/php82/php-fpm.d/www.conf && \
 	sed -i "s|group = nobody|group = www-data|g" /etc/php82/php-fpm.d/www.conf && \
-	sed -i "s|listen = 127.0.0.1:9000|listen = 0.0.0.0:9000|g" /etc/php82/php-fpm.d/www.conf && \
+	sed -i "s|listen = 127.0.0.1:9000|listen = wordpress:9000|g" /etc/php82/php-fpm.d/www.conf && \
 	sed -i "s|;listen.owner = nobody|listen.owner = www-data|g" /etc/php82/php-fpm.d/www.conf && \
 	sed -i "s|;listen.group = www-data|listen.group = www-data|g" /etc/php82/php-fpm.d/www.conf
 
@@ -38,4 +38,4 @@ EXPOSE 9000
 
 RUN chmod +x run.sh
 
-ENTRYPOINT [ "./run.sh" ]
+CMD "./run.sh"

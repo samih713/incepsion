@@ -2,7 +2,7 @@
 FROM alpine:3.19
 
 # the local directory where commands are to be run from
-WORKDIR /usr/local/nginx
+WORKDIR /usr/local/wordpress
 
 # make dir
 # RUN mkdir -p html

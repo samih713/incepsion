@@ -5,7 +5,7 @@ services:
     container_name: nginx
     restart: on-failure
     volumes:
-      - wordpress-volume:/usr/local/nginx/html
+      - wordpress-volume:/usr/local/wordpress
     networks:
       - inception
     ports:
