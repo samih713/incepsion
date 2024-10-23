@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 
 ## Wordpress Setup
 echo "[info] Setting up Wordpress"
